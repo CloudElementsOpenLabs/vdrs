@@ -1,0 +1,32 @@
+{
+  "id": 127190,
+  "objectName": "my-contact-notes",
+  "fields": [
+    {
+      "type": "string",
+      "path": "createdDate",
+      "displayName": ""
+    },
+    {
+      "type": "string",
+      "path": "title",
+      "displayName": ""
+    },
+    {
+      "type": "string",
+      "path": "lastModifiedDate",
+      "displayName": ""
+    },
+    {
+      "type": "string",
+      "path": "id",
+      "displayName": ""
+    },
+    {
+      "type": "string",
+      "path": "memo",
+      "displayName": ""
+    }
+  ],
+  "level": "organization"
+}

@@ -1,0 +1,56 @@
+{
+  "id": 73771,
+  "level": "organization",
+  "elementId": 23,
+  "objectName": "my-contact-notes",
+  "vendorName": "Note",
+  "startDate": "2020-01-28 21:15:57.697966",
+  "fields": [
+    {
+      "type": "string",
+      "path": "createdDate",
+      "level": "organization",
+      "vendorPath": "CreatedDate"
+    },
+    {
+      "type": "string",
+      "path": "id",
+      "level": "organization",
+      "vendorPath": "Id"
+    },
+    {
+      "type": "string",
+      "path": "lastModifiedDate",
+      "level": "organization",
+      "vendorPath": "LastModifiedDate"
+    },
+    {
+      "type": "string",
+      "path": "memo",
+      "level": "organization",
+      "vendorPath": "Body"
+    },
+    {
+      "type": "string",
+      "path": "title",
+      "level": "organization",
+      "vendorPath": "Title"
+    }
+  ],
+  "configuration": [
+    {
+      "type": "passThrough",
+      "properties": {
+        "fromVendor": false,
+        "toVendor": false
+      }
+    },
+    {
+      "type": "addToDocumentation"
+    },
+    {
+      "type": "inherit"
+    }
+  ],
+  "isLegacy": false
+}

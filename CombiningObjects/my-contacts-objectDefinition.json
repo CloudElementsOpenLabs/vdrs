@@ -1,0 +1,42 @@
+{
+  "id": 127436,
+  "objectName": "my-contacts",
+  "fields": [
+    {
+      "type": "string",
+      "path": "createdDate",
+      "displayName": ""
+    },
+    {
+      "type": "string",
+      "path": "source",
+      "displayName": ""
+    },
+    {
+      "type": "string",
+      "path": "activities",
+      "displayName": ""
+    },
+    {
+      "type": "string",
+      "path": "lastModifiedDate",
+      "displayName": ""
+    },
+    {
+      "type": "string",
+      "path": "id",
+      "displayName": ""
+    },
+    {
+      "type": "string",
+      "path": "notes",
+      "displayName": ""
+    },
+    {
+      "type": "string",
+      "path": "email",
+      "displayName": ""
+    }
+  ],
+  "level": "organization"
+}
