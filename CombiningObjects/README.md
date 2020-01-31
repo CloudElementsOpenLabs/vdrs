@@ -1,16 +1,21 @@
-# Combining Various Objects Data in to a Single Virtual Data Resource (VDR)
-This is an example for users familiar with Cloud Elements Virtual Data Resources to expand their resources to be able to combine data from various objects into a single resource. Or, in other words, instead of having to make a call to a /customers endpoint and then having to make a call to /orders endpoint and then having to grab the specific data you want from each endpoint and combine it- this is a way to make two VDRs and call one from within the other to combine the actual data returned on the VDR.
+# Combine Multiple Objects in to a Single Virtual Data Resource (VDR)
+This is an example for users familiar with Cloud Elements Virtual Data Resources to expand their resources to be able to combine data from one or more discrete objects into a single resource. In other words, instead of making a call to the /contacts endpoint, then making two calls for each contact to fetch their respective notes and activities, the requests can be combined in a single VDR.
 
-Things to note in this example:
-1. httpRequestBody.js
-  * can be added to your custom Javascript to invoke another VDR (you must have a VDR with the name you are putting in the path but I will get to that)
-![JavascriptField](javascriptField.png)
-  * Has fields that may be edited to meet your needs including host (that identifies which Cloud Elements platform you are using prod or api, staging, snapshot, etc), path which can be changed depending on the VDR you are calling and the query you might be using when calling it so in this case we are calling a custom VDR called myOrders and getting the order by the customerId, and method.
-      host: "api.cloud-elements.com",
-      path: `/elements/api-v2/myOrders?where=CustomerID=${customerId}`,
-      method: "GET",
+### Terminology:
+Parent VDR - VDR called from the consuming application (in this case a VDR called `my-contacts`)
+Child VDR - VDR or resource called via Javascript in the parent VDR, the response will be merged into the parent VDR's response (`my-contact-activities` and `my-contact-notes`)
 
-2. To use this you will need to make your own transformations.
-  * If you want to use the provided code you will want to make one VDR called /myOrders that and a second VDR (that we called /myCustomers) that will include the provided Javascript and will also include having the id mapped to `customerId` in the VDR.  
-  * Otherwise you can use this with your own VDRs but you will need to edit the example Javascript anywhere there's an object name or a field name (see image below for more details)
-  ![JavascriptField](ToChange.png)
+Typically the parent VDR contains information needed to make the child API calls, such as an ID which is a reference to the object you would like to merge in the parent VDR.
+
+### Things to note in this example:
+1. vdr.js
+  * can be added to your custom Javascript to invoke another VDR or another resource on the element instance.
+![JavascriptField](addJavascript.png)
+  * Has fields that may be edited to meet your needs including path which can be changed depending on the resource you are calling, the ID used in the call to the child VDR, and the field in the parent VDR to add the results. In this case we are calling a VDR named `my-contacts` then getting the notes and activities for each contact in the response.
+2. Alternatively, create an instance of Salesforce Sales Cloud, and import the parent and child VDRs (`{objectName}-objectDefinition.json` and `{objectName}-transformation.json`)
+  * Instructions for importing the VDR into your environment can be found [here](https://docs.cloud-elements.com/home/exporting-and-importing-transformations-and-objects-between-environments)
+
+### Limitations with this approach:
+1. The Javascript will timeout after 30 seconds, use a smaller pageSize on the request.
+2. Errors from the child API calls are returned in the response for the parent VDR, thus the consuming application will need to account for the case were one or all child API calls failed, but the parent API call was successful.
+3. Be mindful of any concurrency limits of the provider's API.

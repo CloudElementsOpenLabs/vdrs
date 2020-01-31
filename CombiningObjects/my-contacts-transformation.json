@@ -1,0 +1,62 @@
+{
+  "id": 73871,
+  "level": "organization",
+  "elementId": 23,
+  "objectName": "my-contacts",
+  "vendorName": "Contact",
+  "startDate": "2020-01-29 19:24:28.797997",
+  "fields": [
+    {
+      "type": "string",
+      "path": "createdDate",
+      "level": "organization",
+      "vendorPath": "CreatedDate"
+    },
+    {
+      "type": "string",
+      "path": "email",
+      "level": "organization",
+      "vendorPath": "Email"
+    },
+    {
+      "type": "string",
+      "path": "id",
+      "level": "organization",
+      "vendorPath": "Id"
+    },
+    {
+      "type": "string",
+      "path": "lastModifiedDate",
+      "level": "organization",
+      "vendorPath": "LastModifiedDate"
+    },
+    {
+      "type": "string",
+      "path": "source",
+      "level": "organization",
+      "vendorPath": "LeadSource"
+    }
+  ],
+  "configuration": [
+    {
+      "type": "passThrough",
+      "properties": {
+        "fromVendor": false,
+        "toVendor": false
+      }
+    },
+    {
+      "type": "addToDocumentation"
+    },
+    {
+      "type": "inherit"
+    }
+  ],
+  "script": {
+    "body": "/*\n  Example to demonstrate merging multiple objects in a VDR\n\n  Use case:\n  The response for the VDR /my-contacts does not contain all of the information the requestor needs--\n  make two additional API calls to enrich the contact record.\n  \n  Limitations:\n  - 30 second timeout on entire request\n  - This JavaScript will run once for each object in the response from the parent API call\n  - Does the provider have a limit on concurrent requests?\n  - Secondary request errors are returned in the transformed object\n\n  Axios - the popular promise based HTTP client for the browser and node.js is used instead of using node HTTP directly\n  Read more about the configuration options Axios provides here -> https: //github.com/axios/axios\n*/\n\nif(fromVendor) {\n\n  const axios = require('axios');\n\n  const ax = axios.create({\n    baseURL: `${configuration.protocol}://${configuration.host}${configuration.pathPrefix}`,\n    headers: {\n      \"accept\": \"application/json\",\n      \"Authorization\": `User ${configuration.userSecret}, Organization ${configuration.organizationSecret}, Element ${configuration.elementInstanceToken}`\n    }\n  });\n\n  const makeCall = async ({ targetField, config }) => {\n    try {\n      const res = await ax.request(config);\n      return { [targetField]: res.data };\n    } catch(e) {\n      return { [targetField]: `Error while resolving field ${targetField}: ${e.message}` };\n    }\n  };\n\n  const calls = [\n    {\n      targetField: \"activities\",\n      config: {\n        url: `/my-contacts/${transformedObject.id}/my-contact-activities`,\n        method: \"get\", // default\n      }\n    },\n    {\n      targetField: \"notes\",\n      config: {\n        url: `/my-contacts/${transformedObject.id}/my-contact-notes`,\n        method: \"get\",\n      }\n    }\n  ];\n\n  const parseData = (data) => {\n    data.forEach(d => {\n      Object\n        .keys(d)\n        .forEach(k => transformedObject[k] = d[k]);\n    });\n\n    done(transformedObject);\n  };\n\n  const makeCalls = (configs) => {\n    Promise\n      .all(configs.map(c => makeCall(c)))\n      .then(data => parseData(data));\n  };\n\n  makeCalls(calls);\n}\n\n",
+    "mimeType": "application/javascript",
+    "filterEmptyResponse": false,
+    "level": "organization"
+  },
+  "isLegacy": false
+}
