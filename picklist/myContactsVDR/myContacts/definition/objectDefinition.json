@@ -1,0 +1,33 @@
+{
+    "createdDate": "2020-10-14 11:42:44.401614",
+    "fields": [
+        {
+            "level": "organization",
+            "path": "company",
+            "type": "string"
+        },
+        {
+            "level": "organization",
+            "path": "email",
+            "type": "string"
+        },
+        {
+            "level": "organization",
+            "path": "firstName",
+            "type": "string"
+        },
+        {
+            "level": "organization",
+            "path": "lastName",
+            "type": "string"
+        },
+        {
+            "level": "organization",
+            "path": "leadSource",
+            "type": "string"
+        }
+    ],
+    "objectName": "myContacts",
+    "vdrShared": false,
+    "vdrShareLevel": "account"
+}
