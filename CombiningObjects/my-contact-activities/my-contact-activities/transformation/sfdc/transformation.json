@@ -1,0 +1,50 @@
+{
+    "configuration": [
+        {
+            "level": "organization",
+            "type": "addToDocumentation"
+        },
+        {
+            "level": "organization",
+            "type": "inherit"
+        },
+        {
+            "level": "organization",
+            "properties": {
+                "fromVendor": false,
+                "toVendor": false
+            },
+            "type": "passThrough"
+        }
+    ],
+    "elementKey": "sfdc",
+    "fields": [
+        {
+            "level": "organization",
+            "path": "desc",
+            "type": "string",
+            "vendorPath": "Description"
+        },
+        {
+            "level": "organization",
+            "path": "createdDate",
+            "type": "string",
+            "vendorPath": "CreatedDate"
+        },
+        {
+            "level": "organization",
+            "path": "lastModifiedDate",
+            "type": "string",
+            "vendorPath": "LastModifiedDate"
+        },
+        {
+            "level": "organization",
+            "path": "id",
+            "type": "string",
+            "vendorPath": "Id"
+        }
+    ],
+    "isLegacy": false,
+    "objectName": "my-contact-activities",
+    "vendorName": "Event"
+}

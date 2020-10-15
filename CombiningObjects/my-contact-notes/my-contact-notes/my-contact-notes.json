@@ -1,0 +1,100 @@
+{
+    "definition": {
+        "createdDate": "2020-10-14 19:42:28.956722",
+        "fields": [
+            {
+                "displayName": "",
+                "level": "organization",
+                "path": "createdDate",
+                "type": "string"
+            },
+            {
+                "displayName": "",
+                "level": "organization",
+                "path": "id",
+                "type": "string"
+            },
+            {
+                "displayName": "",
+                "level": "organization",
+                "path": "lastModifiedDate",
+                "type": "string"
+            },
+            {
+                "displayName": "",
+                "level": "organization",
+                "path": "memo",
+                "type": "string"
+            },
+            {
+                "displayName": "",
+                "level": "organization",
+                "path": "title",
+                "type": "string"
+            }
+        ],
+        "objectName": "my-contact-notes",
+        "vdrShared": false,
+        "vdrShareLevel": "account"
+    },
+    "transformation": {
+        "sfdc": {
+            "configuration": [
+                {
+                    "level": "organization",
+                    "type": "addToDocumentation"
+                },
+                {
+                    "level": "organization",
+                    "type": "inherit"
+                },
+                {
+                    "level": "organization",
+                    "properties": {
+                        "fromVendor": false,
+                        "toVendor": false
+                    },
+                    "type": "passThrough"
+                }
+            ],
+            "elementKey": "sfdc",
+            "fields": [
+                {
+                    "level": "organization",
+                    "path": "lastModifiedDate",
+                    "type": "string",
+                    "vendorPath": "LastModifiedDate"
+                },
+                {
+                    "level": "organization",
+                    "path": "memo",
+                    "type": "string",
+                    "vendorPath": "Body"
+                },
+                {
+                    "level": "organization",
+                    "path": "title",
+                    "type": "string",
+                    "vendorPath": "Title"
+                },
+                {
+                    "level": "organization",
+                    "path": "id",
+                    "type": "string",
+                    "vendorPath": "Id"
+                },
+                {
+                    "level": "organization",
+                    "path": "createdDate",
+                    "type": "string",
+                    "vendorPath": "CreatedDate"
+                }
+            ],
+            "isLegacy": false,
+            "objectName": "my-contact-notes",
+            "vendorName": "Note"
+        }
+    },
+    "vdrName": "my-contact-notes",
+    "vdrVersion": "v2"
+}

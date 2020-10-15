@@ -2,7 +2,7 @@
 
 This example transforms picklist data between a [VDR](https://developers.cloud-elements.com/docs/guides/common-resources/mapping.html) and a particular vendor's own data model. 
 
-## IMPORTANT NOTES:
+## IMPORTANT NOTES
 1. A VDR named myContacts contains a picklist field called leadSource.
 2. The goal is to map the picklist field of myContacts to a similar field on an instance of the SalesForce Lead object.
 3. Each picklist has similar but different values and different counts of options.
@@ -10,17 +10,17 @@ This example transforms picklist data between a [VDR](https://developers.cloud-e
 5. The custom javascript transformation needs to handle data flowing in both directions (`GET`/`POST`).
 6. The direction of dataflow is determined by the `isVendor` object.
 
-## Importing the VDR and transformation:
-There are two ways to import the VDR and subsequent transformation. You can use the UI (API docs) or Cloud Element's cli tool, the doctor.
+## Importing the VDR and transformation
+There are two ways to import the VDR and transformation. You can use the UI (API docs) or Cloud Element's cli tool, the doctor.
 
-### Import in the UI:
+### Import in the UI
 1. Create the VDR:
     * Create the VDR by calling POST `/organizations/objects/myContacts/definitions` with this payload: [ObjectDefinition.json](myContacts/definition/ObjectDefinition.json), where the objectName is myContacts. You can find this API [here](https://my-staging.cloudelements.io/api-docs/platform/organizations).
 2. Create the transformation for Salesforce:
     * Create the transformation for Salesforce by calling POST `/organizations/elements/sfdc/transformations/myContacts` with this payload: [transformation.json](myContacts/transformation/sfdc/transformation.json) (same page as above), where the keyOrId is `sfdc` and the objectName is `myContacts`.
 3. You can now move on to the section below, [Code Explanation](code-explanation).
 
-### Import Using the doctor:
+### Import Using the doctor
 1. Ensure you have the correct version of the doctor installed locally. Run the command:
     ```
     npm i -g ce-util
@@ -35,7 +35,7 @@ There are two ways to import the VDR and subsequent transformation. You can use 
     **Note**: If you make changes the the VDR and want to save them locally, you can run `doctor download vdrs <accountsNickName> -n myContacts -d whatYouWantToCallTheNewDirectoryHere` from your terminal to do so.
 3. You can now move on to the section below, [Code Explanation](code-explanation).
 
-## Code Explanation:
+## Code Explanation
 The transformation defines two javascript objects (`postPick` & `getPick`) that represent both sides of the equation and vary depending on `POST` or `GET`.
 
 1. `getPick` : The keys of the `getPick` object are the options found in the Sales Force LeadSource picklist. 
