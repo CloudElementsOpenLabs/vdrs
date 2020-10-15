@@ -1,6 +1,6 @@
 # Syncing picklist values with transformations
 
-This example transforms picklist data between a [VDR](https://docs.cloud-elements.com/home/common-resources-overview) and a particular vendor's own data model. 
+This example transforms picklist data between a VDR and a particular vendor's own data model. 
 
 ## IMPORTANT NOTES
 1. A VDR named `myContacts` contains a picklist field called `leadSource`.
@@ -18,7 +18,7 @@ There are two ways to import the VDR and transformation. You can use the UI (API
     * Create the VDR by calling POST `/organizations/objects/myContacts/definitions` with this payload: [ObjectDefinition.json](myContactsVDR/myContacts/definition/objectDefinition.json), where the objectName is myContacts. You can find this API [here](https://my-staging.cloudelements.io/api-docs/platform/organizations).
 2. Create the transformation for Salesforce.
     * Create the transformation for Salesforce by calling POST `/organizations/elements/sfdc/transformations/myContacts` with this payload: [transformation.json](myContactsVDR/myContacts/transformation/sfdc/transformation.json) (same page as above), where the keyOrId is `sfdc` and the objectName is `myContacts`.
-3. You can now move on to the section below, [Code Explanation](##code-explanation).
+3. You can now move on to the section below, **Code Explanation**.
 
 ### Import using the doctor
 1. Ensure you have the correct version of the doctor installed locally. Run the command:
@@ -33,7 +33,7 @@ There are two ways to import the VDR and transformation. You can use the UI (API
         ```
     This will import the VDR as well as the transformation into the account you specify.
     * **Note**: If you make changes the the VDR and want to save them locally, you can run `doctor download vdrs <accountsNickName> -n myContacts -d whatYouWantToCallTheNewDirectoryHere` from your terminal to do so.
-3. You can now move on to the section below, [Code Explanation](##code-explanation).
+3. You can now move on to the section below, **Code Explanation**.
 
 ## Code Explanation
 The transformation defines two javascript objects (`postPick` & `getPick`) that represent both sides of the equation and vary depending on `POST` or `GET`.

@@ -31,7 +31,7 @@ There are two ways to import the VDRs and transformations. You can use the UI (A
       * objectName is `my-contacts`: [transformation.json](my-contacts/my-contacts/transformation/sfdc/transformation.json)
       * objectName is `my-contact-activities`: [transformation.json](my-contact-activities/my-contact-activities/transformation/sfdc/transformation.json)
       * objectName is `my-contact-notes`: [transformation.json](my-contact-notes/my-contact-notes/transformation/sfdc/transformation.json)
-3. You can now move on to the section below, [Code Explanation](##code-explanation).
+3. You can now move on to the section below, **Code Explanation**.
 
 ### Import using the doctor
 1. Ensure you have the correct version of the doctor installed locally. Run the command:
@@ -54,7 +54,7 @@ There are two ways to import the VDRs and transformations. You can use the UI (A
       ```
     This will import the parent and child VDRs as well as the transformations and custom JS into the account you specify.
     * **Note**: If you make changes the the VDR and want to save them locally, you can run `doctor download vdrs <accountsNickName> -n myContacts -d whatYouWantToCallTheNewDirectoryHere` from your terminal to do so.
-3. You can now move on to the section below, [Code Explanation](##code-explanation).
+3. You can now move on to the section below, [**Code Explanation**.
 
 ## Code Explanation
 In the parent VDR (`my-contacts`), the JS will call the other two VDRs (`my-contact-activities` and `my-contact-notes`) and concatenate the results into one response. Make a `GET` request using the `Try It Out` feature in the VDR UI. You can cut and re-paste the JS as well to see how the returned results differ with and without it.
