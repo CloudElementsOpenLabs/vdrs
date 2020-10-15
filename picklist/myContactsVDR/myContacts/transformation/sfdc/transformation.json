@@ -1,0 +1,74 @@
+{
+    "configuration": [
+        {
+            "level": "account",
+            "type": "addToDocumentation"
+        },
+        {
+            "level": "account",
+            "type": "inherit"
+        },
+        {
+            "level": "account",
+            "properties": {
+                "fromVendor": false,
+                "toVendor": false
+            },
+            "type": "passThrough"
+        }
+    ],
+    "elementKey": "sfdc",
+    "fields": [
+        {
+            "level": "organization",
+            "path": "firstName",
+            "type": "string",
+            "vendorPath": "FirstName",
+            "vendorType": "string"
+        },
+        {
+            "level": "organization",
+            "path": "company",
+            "type": "string",
+            "vendorPath": "Company",
+            "vendorType": "string"
+        },
+        {
+            "level": "organization",
+            "path": "leadSource",
+            "type": "string",
+            "vendorPath": "LeadSource",
+            "vendorType": "string"
+        },
+        {
+            "level": "organization",
+            "path": "lastName",
+            "type": "string",
+            "vendorPath": "LastName",
+            "vendorType": "string"
+        },
+        {
+            "level": "organization",
+            "path": "email",
+            "type": "string",
+            "vendorPath": "Email",
+            "vendorType": "string"
+        }
+    ],
+    "isLegacy": false,
+    "objectName": "myContacts",
+    "script": {
+        "filterEmptyResponse": false,
+        "level": "organization",
+        "mimeType": "application/javascript"
+    },
+    "scripts": [
+        {
+            "body": "if (fromVendor) {\n  // Demonstrates getting from Sales Force (keys) and transforming to common object (values)\n  let getPick = {\n    'Web': 'Online',\n    'Phone Inquiry': 'Phone',\n    'Partner Referral': 'Referral',\n    'Purchased List': 'List',\n    'Other': 'Unknown'\n    \n  };\n  transformedObject.leadSource = getPick[originalObject.LeadSource];\n} else {\n    // Define one to many mapping\n    // Demonstrates posting to common object (keys) and transfoming to Sales Force (values)\n    let postPick = {\n      'Online': 'Web',\n      'Phone': 'Phone Inquiry',\n      'Referral': 'Partner Referral',\n      'List': 'Purchased List',\n      'Event': 'Purchased List',\n      'Unknown': 'Other'\n    };\n  transformedObject.LeadSource = postPick[originalObject.leadSource];\n  }\n  done(transformedObject);",
+            "filterEmptyResponse": false,
+            "level": "organization",
+            "mimeType": "application/javascript"
+        }
+    ],
+    "vendorName": "Lead"
+}

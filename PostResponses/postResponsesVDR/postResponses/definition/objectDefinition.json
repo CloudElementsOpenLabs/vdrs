@@ -1,0 +1,27 @@
+{
+    "createdDate": "2020-10-13 17:48:40.92253",
+    "description": "No description. Please add a description",
+    "fields": [
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "email",
+            "type": "string"
+        },
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "firstName",
+            "type": "string"
+        },
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "lastName",
+            "type": "string"
+        }
+    ],
+    "objectName": "postResponses",
+    "vdrShared": true,
+    "vdrShareLevel": "organization"
+}
