@@ -35,9 +35,9 @@
         },
         {
             "level": "organization",
-            "path": "createdDate",
+            "path": "id",
             "type": "string",
-            "vendorPath": "CreatedDate",
+            "vendorPath": "Id",
             "vendorType": "string"
         },
         {
@@ -49,9 +49,9 @@
         },
         {
             "level": "organization",
-            "path": "id",
+            "path": "createdDate",
             "type": "string",
-            "vendorPath": "Id",
+            "vendorPath": "CreatedDate",
             "vendorType": "string"
         }
     ],

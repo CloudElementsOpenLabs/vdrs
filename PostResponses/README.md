@@ -39,10 +39,10 @@ done(transformedObject);
     ```
     This will install the latest, non-beta version of the doctor. You can find full instructions [here](https://www.npmjs.com/package/ce-util) as well, as you might need to add an account if you are not already familiar with the doctor. 
 2. Import the VDR and transformation:
-    * In the terminal, run `cd postResponsesVDR`, then, from that directory, run:
+    * In the terminal, from the `PostResponses` directory, run the following command:
         ```
-        doctor upload vdrs <accountNickName> -d . -n postResponses
+        doctor upload vdrs <accountNickName> -n postResponses -d .
         ```
     This will import the VDR as well as the transformation into the account you specify.
-    * **Note**: If you make changes the the VDR and want to save them locally, you can run `doctor download vdrs <accountsNickName> -n postResponses -d whatYouWantToCallTheNewDirectoryHere` from your terminal to do so.
+    * **Note**: If you make changes the the VDR and want to save them locally, you can run `doctor download vdrs <accountsNickName> -n postResponses -d .` from your terminal to do so. This command will save your VDR to a directory with the same name as your VDR. You can alternatively specify your own directory name instead of the `.` after the `d` flag.
 3. The VDR, transformation, and JS will now be ready for use. Test it out by making a `POST` request with and without the JS.

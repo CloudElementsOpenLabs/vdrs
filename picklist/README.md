@@ -27,12 +27,12 @@ There are two ways to import the VDR and transformation. You can use the UI (API
     ```
     This will install the latest, non-beta version of the doctor. You can find full instructions [here](https://www.npmjs.com/package/ce-util) as well, as you might need to add an account if you are not already familiar with the doctor.
 2. Import the VDR and transformation:
-    * In the terminal, run `cd myContactsVDR`, then, from that directory, run:
+    * In the terminal, from the `PickList` directory, run the below command:
         ```
-        doctor upload vdrs <accountNickName> -d . -n myContacts
+        doctor upload vdrs <accountNickName> -n myContacts -d . 
         ```
     This will import the VDR as well as the transformation into the account you specify.
-    * **Note**: If you make changes the the VDR and want to save them locally, you can run `doctor download vdrs <accountsNickName> -n myContacts -d whatYouWantToCallTheNewDirectoryHere` from your terminal to do so.
+    * **Note**: If you make changes the the VDR and want to save them locally, you can run `doctor download vdrs <accountsNickName> -n myContacts -d .` from your terminal to do so. This command will save your VDR to a directory with the same name as your VDR. You can alternatively specify your own directory name instead of the `.` after the `d` flag.
 3. You can now move on to the section below, **Code Explanation**.
 
 ## Code Explanation
