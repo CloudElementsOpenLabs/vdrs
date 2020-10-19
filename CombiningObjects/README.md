@@ -40,20 +40,20 @@ There are two ways to import the VDRs and transformations. You can use the UI (A
     ```
     This will install the latest, non-beta version of the doctor. You can find full instructions [here](https://www.npmjs.com/package/ce-util) as well, as you might need to add an account if you are not already familiar with the doctor. 
 2. Import the VDRs and transformations.
-    * In the terminal, cd into the top-level `my-contacts` directory, then, from that directory, run:
+    * In the terminal, cd into the `CombiningObjects` directory, then, from that directory, run the following three commands:
         ```
-        doctor upload vdrs <accountNickName> -d . -n my-contacts
+        doctor upload vdrs <accountNickName> -n my-contacts -d .
         ```
-    * In the terminal, cd into the top-level `my-contact-activities` directory, then, from that directory, run:
+
         ```
-        doctor upload vdrs <accountNickName> -d . -n my-contact-activities
+        doctor upload vdrs <accountNickName> -n my-contact-activities-d .
         ```
-    * In the terminal, cd into the top-level `my-contact-notes` directory, then, from that directory, run:
-      ```
-      doctor upload vdrs <accountNickName> -d . -n my-contact-notes
-      ```
-    This will import the parent and child VDRs as well as the transformations and custom JS into the account you specify.
-    * **Note**: If you make changes the the VDR and want to save them locally, you can run `doctor download vdrs <accountsNickName> -n myContacts -d whatYouWantToCallTheNewDirectoryHere` from your terminal to do so.
+
+        ```
+        doctor upload vdrs <accountNickName> -n my-contact-notes -d .
+        ```
+    * This will import the parent and child VDRs as well as the transformations and custom JS into the account you specify.
+    * **Note**: If you make changes the the VDR and want to save them locally, you can run `doctor download vdrs <accountsNickName> -n nameOfVDRinUI -d .` from your terminal to do so. This command will save your VDR to a directory with the same name as your VDR. You can alternatively specify your own directory name instead of the `.` after the `d` flag.
 3. You can now move on to the section below, [**Code Explanation**.
 
 ## Code Explanation

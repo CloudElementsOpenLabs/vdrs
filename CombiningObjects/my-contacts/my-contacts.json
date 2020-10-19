@@ -1,6 +1,6 @@
 {
     "definition": {
-        "createdDate": "2020-10-14 19:41:52.262608",
+        "createdDate": "2020-10-15 21:21:36.810074",
         "fields": [
             {
                 "displayName": "",
@@ -87,9 +87,9 @@
                 },
                 {
                     "level": "organization",
-                    "path": "createdDate",
+                    "path": "id",
                     "type": "string",
-                    "vendorPath": "CreatedDate",
+                    "vendorPath": "Id",
                     "vendorType": "string"
                 },
                 {
@@ -101,9 +101,9 @@
                 },
                 {
                     "level": "organization",
-                    "path": "id",
+                    "path": "createdDate",
                     "type": "string",
-                    "vendorPath": "Id",
+                    "vendorPath": "CreatedDate",
                     "vendorType": "string"
                 }
             ],
