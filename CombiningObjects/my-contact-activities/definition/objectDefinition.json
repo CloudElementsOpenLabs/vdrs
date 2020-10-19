@@ -1,0 +1,32 @@
+{
+    "createdDate": "2020-10-14 19:42:12.059658",
+    "fields": [
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "createdDate",
+            "type": "string"
+        },
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "desc",
+            "type": "string"
+        },
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "id",
+            "type": "string"
+        },
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "lastModifiedDate",
+            "type": "string"
+        }
+    ],
+    "objectName": "my-contact-activities",
+    "vdrShared": false,
+    "vdrShareLevel": "account"
+}

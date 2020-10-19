@@ -1,0 +1,50 @@
+{
+    "createdDate": "2020-10-15 21:21:36.810074",
+    "fields": [
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "activities",
+            "type": "string"
+        },
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "createdDate",
+            "type": "string"
+        },
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "email",
+            "type": "string"
+        },
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "id",
+            "type": "string"
+        },
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "lastModifiedDate",
+            "type": "string"
+        },
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "notes",
+            "type": "string"
+        },
+        {
+            "displayName": "",
+            "level": "organization",
+            "path": "source",
+            "type": "string"
+        }
+    ],
+    "objectName": "my-contacts",
+    "vdrShared": false,
+    "vdrShareLevel": "account"
+}

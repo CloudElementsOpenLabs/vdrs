@@ -1,0 +1,60 @@
+{
+    "configuration": [
+        {
+            "level": "account",
+            "type": "addToDocumentation"
+        },
+        {
+            "level": "account",
+            "type": "inherit"
+        },
+        {
+            "level": "account",
+            "properties": {
+                "fromVendor": false,
+                "toVendor": false
+            },
+            "type": "passThrough"
+        }
+    ],
+    "elementKey": "hubspotcrm",
+    "fields": [
+        {
+            "level": "organization",
+            "path": "lastName",
+            "type": "string",
+            "vendorPath": "properties.lastname",
+            "vendorType": "string"
+        },
+        {
+            "level": "organization",
+            "path": "email",
+            "type": "string",
+            "vendorPath": "properties.email",
+            "vendorType": "string"
+        },
+        {
+            "level": "organization",
+            "path": "firstName",
+            "type": "string",
+            "vendorPath": "properties.firstname",
+            "vendorType": "string"
+        }
+    ],
+    "isLegacy": false,
+    "objectName": "postResponses",
+    "script": {
+        "filterEmptyResponse": false,
+        "level": "organization",
+        "mimeType": "application/javascript"
+    },
+    "scripts": [
+        {
+            "body": "if ((originalObject.hasOwnProperty(\"raw\")) && (fromVendor)) {\n  /*\n    This block will format POST responses that cannot be transfomed through the VDR. For example, HubSpot returns the following in\n      a POST response:\n  \n  {\n    \"raw\": {\n      \"isNew\": true,\n      \"vid\": 82601\n    },\n    \"vid\": 82601\n  }\n  \n    As the VDR does not have these fields defined, you can instead tell the VDR that if the response is fromVendor AND the response contains \"raw\" (a field that is unique to POST responses for HubSpot), to format the response however you'd like. Below is taking the \"vid\" from HubSpot's \"raw\" response and saving it to be returned as \"id\".\n  */\n  \n  transformedObject.id = originalObject.raw.vid;\n  done(transformedObject);\n}\n\nif (fromVendor){\n  // Using this if block, the response from the vendor can be manipulated via code. The if block is only needed if you need to differentiate between data that is coming/going to the vendor and the response from those vendor calls.\n  done(transformedObject);\n}\n\nif (!fromVendor) {\n  // This block is to make sure a POST request is sending data in the right format for the vendor.\n  // You can customize what is being sent in a POST request here, or add more logic that might be needed for complex payloads.\n  done(transformedObject);\n}",
+            "filterEmptyResponse": false,
+            "level": "organization",
+            "mimeType": "application/javascript"
+        }
+    ],
+    "vendorName": "contacts"
+}
