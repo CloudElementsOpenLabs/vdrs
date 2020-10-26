@@ -15,9 +15,9 @@ There are two ways to import the VDR and transformation. You can use the UI (API
 
 ### Import in the UI
 1. Create the VDR.
-    * Create the VDR by calling POST `/organizations/objects/myContacts/definitions` with this payload: [ObjectDefinition.json](myContactsVDR/myContacts/definition/objectDefinition.json), where the objectName is myContacts. You can find this API [here](https://my-staging.cloudelements.io/api-docs/platform/organizations).
+    * Create the VDR by calling POST `/organizations/objects/myContacts/definitions` with this payload: [ObjectDefinition.json](myContacts/definition/objectDefinition.json), where the objectName is myContacts. You can find this API [here](https://my-staging.cloudelements.io/api-docs/platform/organizations).
 2. Create the transformation for Salesforce.
-    * Create the transformation for Salesforce by calling POST `/organizations/elements/sfdc/transformations/myContacts` with this payload: [transformation.json](myContactsVDR/myContacts/transformation/sfdc/transformation.json) (same page as above), where the keyOrId is `sfdc` and the objectName is `myContacts`.
+    * Create the transformation for Salesforce by calling POST `/organizations/elements/sfdc/transformations/myContacts` with this payload: [transformation.json](myContacts/transformation/sfdc/transformation.json) (same page as above), where the keyOrId is `sfdc` and the objectName is `myContacts`.
 3. You can now move on to the section below, **Code Explanation**.
 
 ### Import using the doctor

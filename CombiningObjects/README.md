@@ -22,15 +22,15 @@ There are two ways to import the VDRs and transformations. You can use the UI (A
 
 ### Import in the UI
 1. Create the VDRs.
-    * Create the parent VDR by calling POST `/organizations/objects/my-contacts/definitions` with this payload: [objectDefinition.json](my-contacts/my-contacts/definition/objectDefinition.json), where the objectName is `my-contacts`. You can find this API [here](https://my-staging.cloudelements.io/api-docs/platform/organizations).
+    * Create the parent VDR by calling POST `/organizations/objects/my-contacts/definitions` with this payload: [objectDefinition.json](my-contacts/definition/objectDefinition.json), where the objectName is `my-contacts`. You can find this API [here](https://my-staging.cloudelements.io/api-docs/platform/organizations).
     * Create the child VDRs (`my-contact-activities` and `my-contact-notes`) using the same call as above, but switch out the objectName accordingly and use the following payloads:
-      * objectName is `my-contact-activities`: [objectDefinition.json](my-contact-activities/my-contact-activities/definition/objectDefinition.json)
-      * objectName is `my-contact-notes`: [objectDefinition.json](my-contact-notes/my-contact-notes/definition/objectDefinition.json)
+      * objectName is `my-contact-activities`: [objectDefinition.json](my-contact-activities/definition/objectDefinition.json)
+      * objectName is `my-contact-notes`: [objectDefinition.json](my-contact-notes/definition/objectDefinition.json)
 2. Create the transformations for Salesforce.
     * Create the transformations for Salesforce by calling POST `/organizations/elements/sfdc/transformations/{objectName}` [here](https://my-staging.cloudelements.io/api-docs/platform/organizations), with the following payloads, where the keyOrId is always `sfdc` and the objectName changes accordingly.
-      * objectName is `my-contacts`: [transformation.json](my-contacts/my-contacts/transformation/sfdc/transformation.json)
-      * objectName is `my-contact-activities`: [transformation.json](my-contact-activities/my-contact-activities/transformation/sfdc/transformation.json)
-      * objectName is `my-contact-notes`: [transformation.json](my-contact-notes/my-contact-notes/transformation/sfdc/transformation.json)
+      * objectName is `my-contacts`: [transformation.json](my-contacts/transformation/sfdc/transformation.json)
+      * objectName is `my-contact-activities`: [transformation.json](my-contact-activities/transformation/sfdc/transformation.json)
+      * objectName is `my-contact-notes`: [transformation.json](my-contact-notes/transformation/sfdc/transformation.json)
 3. You can now move on to the section below, **Code Explanation**.
 
 ### Import using the doctor
@@ -46,7 +46,7 @@ There are two ways to import the VDRs and transformations. You can use the UI (A
         ```
 
         ```
-        doctor upload vdrs <accountNickName> -n my-contact-activities-d .
+        doctor upload vdrs <accountNickName> -n my-contact-activities -d .
         ```
 
         ```

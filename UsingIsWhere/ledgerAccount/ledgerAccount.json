@@ -1,0 +1,126 @@
+{
+    "definition": {
+        "createdDate": "2020-10-26 14:12:13.578828",
+        "fields": [
+            {
+                "displayName": "Account Name",
+                "level": "organization",
+                "path": "account_name",
+                "type": "string"
+            },
+            {
+                "displayName": "Account Number",
+                "level": "organization",
+                "path": "account_number",
+                "type": "string"
+            },
+            {
+                "displayName": "Account Type",
+                "level": "organization",
+                "path": "account_type",
+                "type": "string"
+            },
+            {
+                "displayName": "Id",
+                "level": "organization",
+                "path": "id",
+                "type": "string"
+            },
+            {
+                "displayName": "Parent Id",
+                "level": "organization",
+                "path": "parent_id",
+                "type": "string"
+            }
+        ],
+        "objectName": "ledgerAccount",
+        "vdrShared": false,
+        "vdrShareLevel": "account"
+    },
+    "transformation": {
+        "netsuiteerpv2": {
+            "configuration": [
+                {
+                    "level": "account",
+                    "type": "addToDocumentation"
+                },
+                {
+                    "level": "account",
+                    "properties": {
+                        "toVendor": null
+                    },
+                    "type": "applyJSOnQueryFieldValue"
+                },
+                {
+                    "level": "account",
+                    "type": "inherit"
+                },
+                {
+                    "level": "account",
+                    "properties": {
+                        "fromVendor": false,
+                        "toVendor": false
+                    },
+                    "type": "passThrough"
+                }
+            ],
+            "elementKey": "netsuiteerpv2",
+            "fields": [
+                {
+                    "level": "organization",
+                    "path": "account_type",
+                    "type": "string",
+                    "vendorPath": "acctType.value",
+                    "vendorType": "string"
+                },
+                {
+                    "level": "organization",
+                    "path": "account_name",
+                    "type": "string",
+                    "vendorPath": "acctName",
+                    "vendorType": "string"
+                },
+                {
+                    "level": "organization",
+                    "path": "account_number",
+                    "type": "string",
+                    "vendorPath": "acctNumber",
+                    "vendorType": "string"
+                },
+                {
+                    "level": "organization",
+                    "path": "parent_id",
+                    "type": "string",
+                    "vendorPath": "parent.internalId",
+                    "vendorType": "string"
+                },
+                {
+                    "level": "organization",
+                    "path": "id",
+                    "type": "string",
+                    "vendorPath": "internalId",
+                    "vendorType": "string"
+                }
+            ],
+            "isLegacy": false,
+            "objectName": "ledgerAccount",
+            "script": {
+                "body": "if (isWhere) {\n    const queries = originalObject.where.map(q => {\n        if (q.attribute == 'account_type') q.attribute = 'type';\n        return q;\n    });\n    transformedObject.where = queries;\n}\n\ndone(transformedObject);",
+                "filterEmptyResponse": false,
+                "level": "organization",
+                "mimeType": "application/javascript"
+            },
+            "scripts": [
+                {
+                    "body": "if (isWhere) {\n    const queries = originalObject.where.map(q => {\n        if (q.attribute == 'account_type') q.attribute = 'type';\n        return q;\n    });\n    transformedObject.where = queries;\n}\n\ndone(transformedObject);",
+                    "filterEmptyResponse": false,
+                    "level": "organization",
+                    "mimeType": "application/javascript"
+                }
+            ],
+            "vendorName": "LedgerAccount"
+        }
+    },
+    "vdrName": "ledgerAccount",
+    "vdrVersion": "v2"
+}
