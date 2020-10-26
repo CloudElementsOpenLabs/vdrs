@@ -1,0 +1,38 @@
+{
+    "createdDate": "2020-10-26 14:12:13.578828",
+    "fields": [
+        {
+            "displayName": "Account Name",
+            "level": "organization",
+            "path": "account_name",
+            "type": "string"
+        },
+        {
+            "displayName": "Account Number",
+            "level": "organization",
+            "path": "account_number",
+            "type": "string"
+        },
+        {
+            "displayName": "Account Type",
+            "level": "organization",
+            "path": "account_type",
+            "type": "string"
+        },
+        {
+            "displayName": "Id",
+            "level": "organization",
+            "path": "id",
+            "type": "string"
+        },
+        {
+            "displayName": "Parent Id",
+            "level": "organization",
+            "path": "parent_id",
+            "type": "string"
+        }
+    ],
+    "objectName": "ledgerAccount",
+    "vdrShared": false,
+    "vdrShareLevel": "account"
+}
