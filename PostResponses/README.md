@@ -27,9 +27,9 @@ done(transformedObject);
 
 ### Import in the UI
 1. Create the VDRs.
-    * Call POST `/organizations/objects/postResponses/definitions` with the payload: [objectDefinition.json](postResponsesVDR/postResponses/definition/objectDefinition.json), where the objectName is `postResponses`. You can find this API [here](https://my-staging.cloudelements.io/api-docs/platform/organizations).
+    * Call POST `/organizations/objects/postResponses/definitions` with the payload: [objectDefinition.json](postResponses/definition/objectDefinition.json), where the objectName is `postResponses`. You can find this API [here](https://my-staging.cloudelements.io/api-docs/platform/organizations).
 2. Create the transformation for HubSpot CRM.
-    * Call POST `/organizations/elements/hubspotcrm/transformations/postResponses` with the payload: [transformation.json](postResponsesVDR/postResponses/transformation/hubspotcrm/transformation.json), where keyOrId is `hubspotcrm` and objectName is `postResponses`.
+    * Call POST `/organizations/elements/hubspotcrm/transformations/postResponses` with the payload: [transformation.json](postResponses/transformation/hubspotcrm/transformation.json), where keyOrId is `hubspotcrm` and objectName is `postResponses`.
 3. The VDR, transformation, and JS will now be ready for use. Test it out by making a `POST` request with and without the JS.
 
 ### Import Using the doctor
