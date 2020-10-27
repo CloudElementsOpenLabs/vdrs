@@ -18,7 +18,7 @@ There are two ways to import the VDR and transformation. You can use the UI (API
     * Create the VDR by calling POST `/organizations/objects/myContacts/definitions` with this payload: [ObjectDefinition.json](myContacts/definition/objectDefinition.json), where the objectName is myContacts. You can find this API [here](https://my-staging.cloudelements.io/api-docs/platform/organizations).
 2. Create the transformation for Salesforce.
     * Create the transformation for Salesforce by calling POST `/organizations/elements/sfdc/transformations/myContacts` with this payload: [transformation.json](myContacts/transformation/sfdc/transformation.json) (same page as above), where the keyOrId is `sfdc` and the objectName is `myContacts`.
-3. You can now move on to the section below, **Code Explanation**.
+3. You can now move on to the section below, [Code Explanation](#code-explanation).
 
 ### Import using the doctor
 1. Ensure you have the correct version of the doctor installed locally. Run the command:
@@ -33,9 +33,9 @@ There are two ways to import the VDR and transformation. You can use the UI (API
         ```
     This will import the VDR as well as the transformation into the account you specify.
     * **Note**: If you make changes the the VDR and want to save them locally, you can run `doctor download vdrs <accountsNickName> -n myContacts -d .` from your terminal to do so. This command will save your VDR to a directory with the same name as your VDR. You can alternatively specify your own directory name instead of the `.` after the `d` flag.
-3. You can now move on to the section below, **Code Explanation**.
+3. You can now move on to the section below, [Code Explanation](#code-explanation).
 
-## Code Explanation
+## <a name="code-explanation"></a>Code Explanation
 The transformation defines two javascript objects (`postPick` & `getPick`) that represent both sides of the equation and vary depending on `POST` or `GET`.
 
 1. `getPick` : The keys of the `getPick` object are the options found in the Salesforce LeadSource picklist. 

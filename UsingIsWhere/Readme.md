@@ -16,7 +16,7 @@ There are two ways to import the VDRs and transformations. You can use the UI (A
     * Create the VDR by calling POST `/organizations/objects/ledgerAccount/definitions` with this payload: [objectDefinition.json](ledgerAccount/definition/objectDefinition.json), where the objectName is `ledgerAccount`. You can find this API [here](https://my-staging.cloudelements.io/api-docs/platform/organizations).
 2. Create the transformation for Netsuite ERP.
     * Create the transformation for Netsuite by calling POST `/organizations/elements/netsuiteerpv2/transformations/{objectName}` [here](https://my-staging.cloudelements.io/api-docs/platform/organizations), where the keyOrId is `netsuiteerpv2` and the objectName is `ledgerAccount`: [transformation.json](ledgerAccount/transformation/netsuiteerpv2/transformation.json)
-3. You can now move on to the section below, **Code Explanation**.
+3. You can now move on to the section below, [Code Explanation](#code-explanation).
 
 ### Import using the doctor
 1. Ensure you have the correct version of the doctor installed locally. Run the command:
@@ -31,7 +31,7 @@ There are two ways to import the VDRs and transformations. You can use the UI (A
         ```
     * This will import VDR as well as the transformation and custom JS into the account you specify.
     * **Note**: If you make changes the the VDR and want to save them locally, you can run `doctor download vdrs <accountsNickName> -n nameOfVDRinUI -d .` from your terminal to do so. This command will save your VDR to a directory with the same name as your VDR. You can alternatively specify your own directory name instead of the `.` after the `d` flag.
-3. You can now move on to the section below, **Code Explanation**.
+3. You can now move on to the section below, [Code Explanation](#code-explanation).
 
-## Code Explanation
+## <a name="code-explanation"></a>Code Explanation
 In the parent VDR (`my-contacts`), the JS will call the other two VDRs (`my-contact-activities` and `my-contact-notes`) and concatenate the results into one response. Make a `GET` request using the `Try It Out` feature in the VDR UI. You can cut and re-paste the JS as well to see how the returned results differ with and without it.
