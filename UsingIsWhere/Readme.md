@@ -1,10 +1,12 @@
 # Using isWhere in a VDR
 This is an example of using the where clause in a VDR when the search term is different from the original object (in a GET request, this would mean the vendor field in a VDR). The example VDR uses Netsuite ERP's ledgerAccount object. Although mapping `account_type` to Netsuite's `acctType.value` yields the correct results when executing a GET request without a where clause, it does not work with a where clause because Netsuite is expecting the search term `type` to search for the field `acctType.value`. Using custom javascript in a VDR can transform the where clause as well, so that you can query `account_type='_bank'` and receive the correct results.
 
+The use-case in this example is only one of many that demonstrate how you can use `isWhere` in VDRs to modify the contents of a where clause. It's not limited to cases where the search term needs to change, as the above example is showing.
+
 ## **NOTES:**
 * This VDR was created to work with Netsuite ERP, so you need to have an authenticated instance of this Element if you plan to test with this example. Otherwise, you will need to update the javacript to accomdate your specific use-case.
 * If you just want the script to play with in your own VDR, it is in the main directory: [isWhereVDRScript.js](isWhereVDRScript.js).
-* You **MUST** have the `Apply Scripts on Query Field Value` toggled to true in order for the script to apply to the where clause. You can find this setting by clicking the gear wheel icon next to the `DELETE TANSFORMATION` button.
+* You **MUST** have the `Apply Scripts on Query Field Value` toggled to true in order for the script to apply to the where clause. You can find this setting by clicking the gear wheel icon next to the `DELETE TRANSFORMATION` button.
 
 ## Importing the VDR and transformation
 There are two ways to import the VDRs and transformations. You can use the UI (API docs) or Cloud Element's cli tool, the doctor.
