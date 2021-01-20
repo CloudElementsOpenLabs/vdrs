@@ -34,4 +34,17 @@ There are two ways to import the VDRs and transformations. You can use the UI (A
 3. You can now move on to the section below, [Code Explanation](#code-explanation).
 
 ## <a name="code-explanation"></a>Code Explanation
-In the parent VDR (`my-contacts`), the JS will call the other two VDRs (`my-contact-activities` and `my-contact-notes`) and concatenate the results into one response. Make a `GET` request using the `Try It Out` feature in the VDR UI. You can cut and re-paste the JS as well to see how the returned results differ with and without it.
+The javascript in the VDR will show a simple example of using the `isWhere` option.
+```
+if (isWhere) {
+    const queries = originalObject.where.map(q => {
+        if (q.attribute == 'account_type') q.attribute = 'type';
+        return q;
+    });
+    transformedObject.where = queries;
+}
+
+done(transformedObject);
+```
+This simple function is converting the input of `account_type` to `type` (what Netsuite is expecting) and then returning it as the `transformedObject's` where clause. There are many
+more  use-cases for this functionality but we've provided this example as a jumping-off point.
